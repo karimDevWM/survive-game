@@ -44,9 +44,9 @@ function ellipseAutoMove()
 {
     // Jiggling randomly on the horizontal axis
     posObstacleX = posObstacleX + random(1, 10);
-    // posObstacleX = posObstacleX + random(1, 1);
-    // posObstacleY = posObstacleY + random(1, 1);
-    // posObstacleY = posObstacleY + random(1, 1);
+    posObstacleX = posObstacleX + random(1, 1);
+    posObstacleY = posObstacleY + random(1, 1);
+    posObstacleY = posObstacleY + random(1, 1);
     // Reset
   if (posObstacleX < 0) {
     posObstacleX = 640;
