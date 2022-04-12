@@ -56,13 +56,13 @@ function ellipseAutoMove()
     posObstacleX = 0;
   }
 
-//   if (posObstacleY < 0) {
-//     posObstacleY = 480;
-//   }
+  if (posObstacleY < 0) {
+    posObstacleY = 480;
+  }
   
-//   if (posObstacleY > 480) {
-//     posObstacleY = 0;
-//   }
+  if (posObstacleY > 480) {
+    posObstacleY = 0;
+  }
 }
 
 function limitGameScreen()
