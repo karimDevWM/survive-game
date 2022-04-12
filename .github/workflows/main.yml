@@ -18,5 +18,5 @@ jobs:
         SSHPATH="$HOME/.ssh"
         mkdir "$SSHPATH"
         echo "$KEY" > "$SSHPATH/key" && chmod 400 "$SSHPATH/key"
-        SERVER_DEPLOY_PATH="karim@handigital.rbacher.fr/var/www/html/karim"
+        SERVER_DEPLOY_PATH="karim@handigital.rbacher.fr:/var/www/html/karim"
         sh -c "rsync -arv --delete -e 'ssh -o StrictHostKeyChecking=no -i $SSHPATH/key -p 22' $GITHUB_WORKSPACE/ $SERVER_DEPLOY_PATH"
