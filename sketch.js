@@ -65,19 +65,6 @@ function ellipseAutoMove()
 
 function limitGameScreen()
 {
-    // if(posX < 0 || posX > 480)
-    // {
-    //     line(0, 0, 0, 0);
-    //     stroke('red');
-    // }
-    // else if(posY < 0 || posY > 640)
-    // {
-    //     stroke('red');
-        // let borderTop=document.getElementsByClassName('p5canvas');
-        // borderTop.className('border-Top: red');
-    //     line(640, 0, 0, 0);
-    // }
-
     if(posX < 0)
     {
         stroke('red');
