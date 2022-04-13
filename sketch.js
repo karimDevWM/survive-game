@@ -24,6 +24,7 @@ function draw(){
     ellipseAutoMove();
     updatePositionCircle();
     limitGameScreen();
+    testCollision();
 }
 
 function updatePositionCircle()
@@ -102,4 +103,16 @@ function limitGameScreen()
         stroke('red')
         line(0, 480, 640, 480);
     }
+}
+
+function testCollision()
+{
+    strokeWeight(1)
+
+    fill('black');
+    let d= dist(posObstacleX, posObstacleY,posX,posY);
+
+    translate((posObstacleX + posX ) / 2, (posObstacleY + posY ) / 2);
+    atan();
+    text(nfc(d, 2), 0, 0);
 }
