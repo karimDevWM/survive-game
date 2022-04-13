@@ -10,6 +10,7 @@ let posObstacleY = 150;
 let posObstacleZ = 20;
 let ballRadius = 10;
 let posObstacleDx = 2;
+let posObstacleDy = -2;
 
 // let direction = 0;
 
@@ -52,6 +53,13 @@ function ellipseAutoMove()
           posObstacleDx = -posObstacleDx;  
         }
         posObstacleX+=posObstacleDx;
+
+    if(posObstacleY + posObstacleDy > 480 - ballRadius ||
+        posObstacleY + posObstacleDy < ballRadius)
+        {
+            posObstacleDy= -posObstacleDy;
+        }
+        posObstacleY+=posObstacleDy;
 }
 
 function limitGameScreen()
