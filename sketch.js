@@ -8,6 +8,10 @@ let posY = 300;
 let posObstacleX = 10;
 let posObstacleY = 150;
 let posObstacleZ = 20;
+let ballRadius = 10;
+let posObstacleDx = 2;
+
+// let direction = 0;
 
 function draw(){
     background(195);
@@ -15,9 +19,9 @@ function draw(){
     circle(posX, posY, 50);
     fill(255,0,0);
     noStroke();
-    ellipse(posObstacleX, posObstacleY, posObstacleZ, 30);
-    updatePositionCircle();
+    ellipse(posObstacleX, posObstacleY, posObstacleZ);
     ellipseAutoMove();
+    updatePositionCircle();
     limitGameScreen();
 }
 
@@ -42,27 +46,12 @@ function updatePositionCircle()
 
 function ellipseAutoMove()
 {
-    // Jiggling randomly on the horizontal axis
-    posObstacleX = posObstacleX + random(1, 10);
-    posObstacleX = posObstacleX + random(1, 1);
-    posObstacleY = posObstacleY + random(1, 1);
-    posObstacleY = posObstacleY + random(1, 1);
-    // Reset
-  if (posObstacleX < 0) {
-    posObstacleX = 640;
-  }
-  
-  if (posObstacleX > 640) {
-    posObstacleX = 0;
-  }
-
-  if (posObstacleY < 0) {
-    posObstacleY = 480;
-  }
-  
-  if (posObstacleY > 480) {
-    posObstacleY = 0;
-  }
+    if(posObstacleX + posObstacleDx > 640 - ballRadius || 
+        posObstacleX + posObstacleDx < ballRadius)
+        {
+          posObstacleDx = -posObstacleDx;  
+        }
+        posObstacleX+=posObstacleDx;
 }
 
 function limitGameScreen()
