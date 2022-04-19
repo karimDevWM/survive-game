@@ -175,7 +175,7 @@ function stopPlaying()
         fill('white');
         let milliSecond = millis();
         console.log(milliSecond);
-        window.alert('fin de partie \ntemp écoulé : '+ milliSecond +' secondes \npress F5 ');
+        window.alert('Game Over !!! \ntemps écoulé : '+ milliSecond +' secondes \npress F5 ');
         location.reload(true);
 
         return milliSecond;
