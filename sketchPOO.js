@@ -1,6 +1,9 @@
 let countTouching = 0;
 let maxCountTouching = 1;
 
+let gameScreenWidth = 640;
+let gameScreenHeight = 480;
+
 class Joueur
 {
     constructor(x, y, diametre)
@@ -114,9 +117,9 @@ class Obstacle
 
 function setup() 
 {
-    createCanvas(640, 480);
+    createCanvas(gameScreenWidth, gameScreenHeight);
 
-    balleBlanche = new Joueur(50, 30, 60)
+    balleBlanche = new Joueur(200, 300, 60);
     ennemie = new Obstacle(30, 40, 20, 2, -2);
 }
   
@@ -132,33 +135,22 @@ function draw()
     ennemie.display();
     ennemie.ellipseAutoMove();
 
-    text(20);
-    text(countTouching, 640/2, 480-50);
+    
 
     testCollision();
-
     collision();
-
     stopPlaying();
 }
 
 function testCollision()
 {
     strokeWeight(1)
-
     fill('black');
     let d= dist(ennemie.obstacleX, ennemie.obstacleY, balleBlanche.x,balleBlanche.y);
-
     translate((ennemie.obstacleX + balleBlanche.x ) / 2, (ennemie.obstacleY + balleBlanche.y ) / 2);
     atan();
+    textSize(20);
     text(nfc(d, 2), 0, 0);
-
-    return d;
-    // if(d<(balleBlanche.diametre+ennemie.obstacleDiametre)/2)
-    // {
-    //     fill('rgba(255, 72, 0, 0.7)');
-    //     circle(20, 20, 60, 60);
-    // }
 }
 
 function collision()
@@ -169,22 +161,24 @@ function collision()
         ennemie.obstacleY < balleBlanche.y + (balleBlanche.diametre/2))
     {
         fill('red');
+        circle(20, 20, 60, 60);
         countTouching = countTouching + 1;
-        // stopPlaying();
     }
 }
 
 function stopPlaying()
 {
-    if(countTouching >= maxCountTouching)
+    if (countTouching >= maxCountTouching)
     {
         strokeWeight(4);
         textSize(20);
         fill('white');
-
-        // timer
         let milliSecond = millis();
-        text('end game \n, time played : \n'+Math.trunc(milliSecond/1000)+' seconds', 640/4, 480/2);
-        // releaseTime();
+        console.log(milliSecond);
+        window.alert('fin de partie \ntemp écoulé : '+ milliSecond +' secondes \npress F5 ');
+        location.reload(true);
+
+        return milliSecond;
     }
 }
+    
